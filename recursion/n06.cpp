@@ -21,7 +21,7 @@ int main() {
         cout << "1 ";
     }
     cout << endl;
-    for (int i=0; i<pow(k, n); ++i) {
+    for (int i=0; i<pow(k, n)-1; ++i) {
         next(a, n, k);
         for (int j = 0; j<n; j++) {
             cout << a[j] << " ";

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/storage/emulated/0/Repos/infpp/memory/vector_class.cpp
+iostream
+-
+cassert
+-
+cstring
+-
+iterator
+-
+initializer_list
+-
+

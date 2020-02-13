@@ -1,0 +1,11 @@
+/storage/emulated/0/Repos/infpp/CMakeFiles/rebuild_cache.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n08.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n06.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n07.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n05.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n04.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n03.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n02.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/edit_cache.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/n01.dir
+/storage/emulated/0/Repos/infpp/CMakeFiles/vector_class.dir

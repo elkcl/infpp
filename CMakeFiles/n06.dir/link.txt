@@ -1,0 +1,1 @@
+/data/user/0/ru.iiec.cxxdroid/files/bin/clang++  -Wextra -std=c++17 -fallow-void-main  -lm -llog -lz CMakeFiles/n06.dir/recursion/n06.cpp.o  -o n06 
