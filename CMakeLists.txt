@@ -14,3 +14,5 @@ add_executable(n07 recursion/n07.cpp)
 add_executable(n08 recursion/n08.cpp)
 
 #Cxxdroid-binary: n07
+add_executable(no_rec trees/no_rec.cpp)
+add_executable(vector_tree trees/vector_tree.cpp)

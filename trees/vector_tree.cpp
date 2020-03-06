@@ -1,174 +1,333 @@
 #include <iostream>
 #include <cassert>
 #include <cstring>
-#include <iterator>
-#include <initializer_list>
+#include <stack>
+#include <algorithm>
 using namespace std;
 
 template <typename T>
-class VectorObj<T*> {
+class Vector {
 public:
-	VectorObj();
-	explicit VectorObj(int size);
-	~VectorObj();
-	int size() const {return _size;}
-	int capacity() const {return _capacity;}
-	T* operator[] (int i) const;
-	T*& operator[] (int i);
-	VectorObj& operator= (const VectorObj &arr);
-    //VectorObj& operator= (const initializer_list<double> &list);
-	//iterator begin() {return _data;}
-	//iterator end() {return _data+_size;}
-	void push_back(T* el);
-	void reserve(int cap);
-	void shrink_to_fit();
-	void insert(T* el, int i);
-	void erase(int i);
+    Vector();
+    explicit Vector(int size);
+    ~Vector();
+    typedef T* iterator;
+    typedef const T* const_iterator;
+    iterator begin() {return _data;}
+    iterator end() {return _data+_size;}
+    int size() const {return _size;}
+    int capacity() const {return _capacity;}
+    T operator[] (int i) const;
+    T& operator[] (int i);
+    void push_back(T el);
+    void reserve(int cap);
+    void shrink_to_fit();
+    void insert(T el, int i);
+    void erase(int i);
 private:
-	int _size;
-	int _capacity;
-	T **_data;
+    int _size;
+    int _capacity;
+    T *_data;
 };
 
-VectorObj::VectorObj() {
+template <typename T>
+Vector<T>::Vector() {
     _size = 0;
-    _capacity = 0;
-    _data = new double[_capacity];
-	assert(_data != nullptr);
+    _capacity = 1;
+    _data = new T[_capacity];
+    assert(_data != nullptr);
 }
 
-VectorObj::VectorObj(int size): _size{size}, _capacity{size} {
-	_data = new double[size];
-	assert(_data != nullptr);
-}
-VectorObj::VectorObj(const initializer_list<double> &list): VectorObj(list.size()) {
-	int i = 0;
-	for (auto &el : list) {
-		_data[i] = el;
-		i++;
-	}
-}
-VectorObj::~VectorObj() {
-	delete[] _data;
+template <typename T>
+Vector<T>::Vector(int size): _size{size}, _capacity{size} {
+    _data = new T[size];
+    assert(_data != nullptr);
 }
 
-VectorObj& VectorObj::operator= (const VectorObj &arr) {
-    if (this == &arr)
-        return *this;
+template <typename T>
+Vector<T>::~Vector() {
+    //delete[] _data;
+}
 
-    if (arr.size() != _size) {
-        delete[] _data;
-        _size = arr.size();
-        _capacity = arr.capacity();
-        _data = new double[_capacity];
+template <typename T>
+T Vector<T>::operator[] (int i) const {
+    assert(i < _size);
+    assert(i >= -_size);
+    if (i >= 0) {
+        return _data[i];
+    } else {
+        return _data[i+_size];
     }
-    memcpy(_data, arr._data, _size*sizeof(double));
-
-    return *this;
 }
 
-VectorObj& VectorObj::operator= (const initializer_list<double> &list) {
-    if (list.size() != _size) {
-        delete[] _data;
-        _size = list.size();
-        _capacity = _size*2;
-        _data = new double[_capacity];
+template <typename T>
+T& Vector<T>::operator[] (int i) {
+    assert(i < _size);
+    assert(i >= -_size);
+    if (i >= 0) {
+        return _data[i];
+    } else {
+        return _data[i+_size];
     }
-
-    int count = 0;
-    for (auto &element : list)
-    {
-        _data[count] = element;
-        ++count;
-    }
-
-    return *this;
 }
 
-double VectorObj::operator[] (int i) const {
-	assert(i < _size);
-	assert(i >= -_size);
-	if (i >= 0) {
-		return _data[i];
-	} else {
-		return _data[i+_size];
-	}
-}
-double& VectorObj::operator[] (int i) {
-	assert(i < _size);
-	assert(i >= -_size);
-	if (i >= 0) {
-		return _data[i];
-	} else {
-		return _data[i+_size];
-	}
-}
-
-void VectorObj::reserve(int cap) {
+template <typename T>
+void Vector<T>::reserve(int cap) {
     assert(cap >= _size);
     _capacity = cap;
-    double *nd = new double[cap];
-    memcpy(nd, _data, _size*sizeof(double));
+    T *nd = new T[cap];
+    memcpy(nd, _data, _size*sizeof(T));
     delete[] _data;
     _data = nd;
 }
 
-void VectorObj::push_back(double el) {
-    if (_capacity == 0) {
-        reserve(1);
-    } else if (_size >= _capacity) {
+template <typename T>
+void Vector<T>::push_back(T el) {
+    if (_size >= _capacity) {
         reserve(_capacity*2);
     }
     _data[_size++] = el;
 }
 
-void VectorObj::insert(double el, int i) {
+template <typename T>
+void Vector<T>::insert(T el, int i) {
     assert(i < _size);
-	assert(i >= 0);
-	if (_capacity == 0) {
-        reserve(1);
-    } else if (_size+1 > _capacity) {
+    assert(i >= 0);
+    if (_size+1 > _capacity) {
         reserve(_capacity*2);
     }
-    memmove(_data+i+1, _data+i, (_size-i)*sizeof(double));
+    memmove(_data+i+1, _data+i, (_size-i)*sizeof(T));
     _size++;
     _data[i] = el;
 }
 
-void VectorObj::erase(int i) {
+template <typename T>
+void Vector<T>::erase(int i) {
     assert(i < _size);
-	assert(i >= 0);
-	memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(double));
-	_size--;
+    assert(i >= 0);
+    memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(T));
+    _size--;
 }
 
-void VectorObj::shrink_to_fit() {
+template <typename T>
+void Vector<T>::shrink_to_fit() {
     if (_capacity > _size) {
         reserve(_size);
     }
 }
 
-ostream& operator<<(ostream& s, const VectorObj& arr) {
-	for (int i = 0; i < arr.size(); i++) {
-		s << arr[i] << " ";
-	}
-	return s;
+template <typename T>
+ostream& operator<<(ostream& s, const Vector<T>& arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        s << arr[i] << " ";
+    }
+    return s;
 }
-istream& operator>>(istream& s, VectorObj& arr) {
-	for (int i = 0; i < arr.size(); i++) {
-		s >> arr[i];
-	}
-	return s;
+template <typename T>
+istream& operator>>(istream& s, Vector<T>& arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        s >> arr[i];
+    }
+    return s;
+}
+
+class Node {
+private:
+    Node* _parent;
+    Vector<Node*> _children;
+    double _value;
+public:
+    Node() {}
+    Node(double value) {
+        _parent = nullptr;
+        _value = value;
+        _children = Vector<Node*>();
+    }
+
+    ~Node() {
+        //cout << "hi";
+    }
+
+    Node* parent() {return _parent;}
+    double value() {return _value;}
+
+    Node* getRoot() {
+        Node* curr = this;
+        while (curr->_parent != nullptr) {
+            curr = curr->_parent;
+        }
+        return curr;
+    }
+
+    Node* lastChild() {
+        return _children[_children.size()-1];
+    }
+
+    bool contains(Node* n) {
+        stack<Node*> sub;
+        sub.push(this);
+        Node *curr;
+        while(!sub.empty()) {
+            curr = sub.top();
+            if (curr == n) {
+                return true;
+            }
+            sub.pop();
+            for (Node* currCh : curr->_children) {
+                sub.push(currCh);
+            }
+        }
+        return false;
+    }
+
+    // простое добавление ребёнка
+    void addChild(Node* n) {
+        _children.push_back(n);
+        n->_parent = this;
+    }
+
+    // добавление ребёнка с проверкой на циклы
+    bool safeAddChild(Node* n) {
+        if (n->_parent != nullptr || n->contains(this)) {
+            return false;
+        }
+        addChild(n);
+        return true;
+    }
+
+    void removeChild(Node* n) {
+        int i = 0;
+        while (_children[i] != n) {
+            ++i;
+        }
+        _children.erase(i);
+    }
+
+    double getSum() {
+        double sum = 0;
+        stack<Node*> sub;
+        sub.push(this);
+        Node *currSub;
+        while (!sub.empty()) {
+            currSub = sub.top();
+            sum += currSub->_value;
+            sub.pop();
+            for (Node* currCh : currSub->_children) {
+                sub.push(currCh);
+            }
+        }
+        return sum;
+    }
+
+    void hang() {
+        stack<Node*> par;
+        Node* curr = this;
+        while (curr->_parent != nullptr) {
+            par.push(curr);
+            curr = curr->_parent;
+        }
+        while(!par.empty()) {
+            curr = par.top();
+            par.pop();
+            curr->_parent->_parent = curr;
+            curr->_parent->removeChild(curr);
+            curr->addChild(curr->_parent);
+            curr->_parent = nullptr;
+        }
+    }
+
+    int getDepth();
+    friend ostream& operator << (ostream& s, Node& el);
+};
+
+struct NodeWrap {
+    Node* node;
+    string pr1;
+    string pr2;
+};
+
+struct NodeDepth {
+    Node* node;
+    int lvl;
+};
+
+int Node::getDepth() {
+    int depth = 0;
+    stack<NodeDepth> sub;
+    NodeDepth wr {this, 1};
+    sub.push(wr);
+    NodeDepth currSub;
+    while (!sub.empty()) {
+        currSub = sub.top();
+        depth = max(depth, currSub.lvl);
+        sub.pop();
+        for (Node* currCh : currSub.node->_children) {
+            NodeDepth nextWr {currCh, currSub.lvl+1};
+            sub.push(nextWr);
+        }
+    }
+    return depth;
+}
+
+ostream& operator << (ostream& s, Node& el) {
+    stack<NodeWrap> sub;
+    NodeWrap wr {&el, "▶", "  "};
+    sub.push(wr);
+    NodeWrap currSub;
+    Node* currCh;
+    while (!sub.empty()) {
+        currSub = sub.top();
+        sub.pop();
+        s << currSub.pr1 << currSub.node->value() << endl;
+        int i = currSub.node->_children.size()-1;
+        if (i >= 0) {
+            NodeWrap currWr {currSub.node->_children[i], currSub.pr2 + "└▶", currSub.pr2 + "   "};
+            sub.push(currWr);
+            --i;
+        }
+        while (i >= 0) {
+            NodeWrap currWr {currSub.node->_children[i], currSub.pr2 + "├▶", currSub.pr2 + "│  "};
+            sub.push(currWr);
+            --i;
+        }
+        /**currCh = currSub.node->lastChild();
+        if (currCh != nullptr) {
+            NodeWrap currWr {currCh, currSub.pr2 + "└▶", currSub.pr2 + "   "};
+            sub.push(currWr);
+            currCh = currCh->prev();
+        }
+        while (currCh != nullptr) {
+            NodeWrap currWr {currCh, currSub.pr2 + "├▶", currSub.pr2 + "│  "};
+            sub.push(currWr);
+            currCh = currCh->prev();
+        }**/
+    }
+    return s;
 }
 
 int main() {
     int n;
-	cin >> n;
-	VectorObj vec;
-	for (int i = 0; i<n; ++i) {
-        double curr;
-        cin >> curr;
-        vec.push_back(curr);
-	}
-	cout << vec;
- }
+    cin >> n;
+    Node* arr[n];
+    double val;
+    for (int i = 0; i < n; i++) {
+        cin >> val;
+        arr[i] = new Node(val);
+    }
+    int a, b;
+    for (int i = 0; i < n-1; i++) {
+        cin >> a >> b;
+        if(!arr[a]->safeAddChild(*(arr+b))) {
+            cout << "not a tree" << endl;
+            return 1;
+        }
+    }
+    int h;
+    cin >> h;
+    arr[h]->hang();
+    cout << arr[h]->getSum() << endl << arr[h]->getDepth() << endl << *arr[h];
+    for (int i = 0; i < n; i++) {
+        delete arr[i];
+    }
+    return 0;
+}
