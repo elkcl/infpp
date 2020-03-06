@@ -13,4 +13,4 @@ add_executable(n06 recursion/n06.cpp)
 add_executable(n07 recursion/n07.cpp)
 add_executable(n08 recursion/n08.cpp)
 
-#Cxxdroid-binary: n06
+#Cxxdroid-binary: n07

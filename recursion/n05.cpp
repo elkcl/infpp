@@ -1,5 +1,6 @@
 #include <iostream>
 #include <tuple>
+#include <cmath>
 using namespace std;
 
 tuple<int, int, int> gcd(int a, int b) { // d, m, n
@@ -13,6 +14,8 @@ tuple<int, int, int> gcd(int a, int b) { // d, m, n
 int main() {
     int a, b;
     cin >> a >> b;
-    auto [d, m, n] = gcd(a, b);
+    auto [d, m, n] = gcd(abs(a), abs(b));
+    m *= a > 0 ? 1 : -1;
+    n *= b > 0 ? 1 : -1;
     cout << d << " " << m << " " << n << endl;
 }
