@@ -24,10 +24,12 @@ public:
     void shrink_to_fit();
     void insert(T el, int i);
     void erase(int i);
+protected:
+    T *_data;
 private:
     int _size;
     int _capacity;
-    T *_data;
+
 };
 
 template <typename T>
@@ -46,7 +48,7 @@ Vector<T>::Vector(int size): _size{size}, _capacity{size} {
 
 template <typename T>
 Vector<T>::~Vector() {
-    //delete[] _data;
+    delete[] _data;
 }
 
 template <typename T>
@@ -142,10 +144,6 @@ public:
         _parent = nullptr;
         _value = value;
         _children = Vector<Node*>();
-    }
-
-    ~Node() {
-        //cout << "hi";
     }
 
     Node* parent() {return _parent;}
@@ -305,29 +303,38 @@ ostream& operator << (ostream& s, Node& el) {
     return s;
 }
 
+class VecNodes : public Vector<Node*> {
+    ~VecNodes() {
+        for (auto& el : *this) {
+            delete el;
+        }
+    }
+    void destroy(int i) {
+        delete _data[i];
+        erase(i);
+    }
+};
+
 int main() {
     int n;
     cin >> n;
-    Node* arr[n];
+    Node arr[n];
     double val;
     for (int i = 0; i < n; i++) {
         cin >> val;
-        arr[i] = new Node(val);
+        arr[i] = Node(val);
     }
     int a, b;
     for (int i = 0; i < n-1; i++) {
         cin >> a >> b;
-        if(!arr[a]->safeAddChild(*(arr+b))) {
+        if(!arr[a].safeAddChild(arr+b)) {
             cout << "not a tree" << endl;
             return 1;
         }
     }
     int h;
     cin >> h;
-    arr[h]->hang();
-    cout << arr[h]->getSum() << endl << arr[h]->getDepth() << endl << *arr[h];
-    for (int i = 0; i < n; i++) {
-        delete arr[i];
-    }
+    arr[h].hang();
+    cout << arr[h].getSum() << endl << arr[h].getDepth() << endl << arr[h];
     return 0;
 }
