@@ -9,7 +9,7 @@ template <typename T>
 class Vector {
 public:
     Vector();
-    explicit Vector(int size);
+    Vector(int size);
     ~Vector();
     typedef T* iterator;
     typedef const T* const_iterator;
@@ -133,21 +133,36 @@ istream& operator>>(istream& s, Vector<T>& arr) {
     return s;
 }
 
+class Node;
+
+class VecNodes : public Vector<Node*> {
+public:
+    ~VecNodes() {
+        for (auto& el : *this) {
+            delete el;
+        }
+    }
+    void destroy(int i) {
+        delete _data[i];
+        erase(i);
+    }
+};
+
 class Node {
 private:
     Node* _parent;
-    Vector<Node*> _children;
+    VecNodes _children;
     double _value;
 public:
     Node() {}
     Node(double value) {
         _parent = nullptr;
         _value = value;
-        _children = Vector<Node*>();
     }
 
     Node* parent() {return _parent;}
     double value() {return _value;}
+    VecNodes& children() {return _children;}
 
     Node* getRoot() {
         Node* curr = this;
@@ -193,12 +208,20 @@ public:
         return true;
     }
 
-    void removeChild(Node* n) {
+    void detachChild(Node* n) {
         int i = 0;
         while (_children[i] != n) {
             ++i;
         }
         _children.erase(i);
+    }
+
+    void removeChild(Node* n) {
+        int i = 0;
+        while (_children[i] != n) {
+            ++i;
+        }
+        _children.destroy(i);
     }
 
     double getSum() {
@@ -228,7 +251,7 @@ public:
             curr = par.top();
             par.pop();
             curr->_parent->_parent = curr;
-            curr->_parent->removeChild(curr);
+            curr->_parent->detachChild(curr);
             curr->addChild(curr->_parent);
             curr->_parent = nullptr;
         }
@@ -288,53 +311,30 @@ ostream& operator << (ostream& s, Node& el) {
             sub.push(currWr);
             --i;
         }
-        /**currCh = currSub.node->lastChild();
-        if (currCh != nullptr) {
-            NodeWrap currWr {currCh, currSub.pr2 + "└▶", currSub.pr2 + "   "};
-            sub.push(currWr);
-            currCh = currCh->prev();
-        }
-        while (currCh != nullptr) {
-            NodeWrap currWr {currCh, currSub.pr2 + "├▶", currSub.pr2 + "│  "};
-            sub.push(currWr);
-            currCh = currCh->prev();
-        }**/
     }
     return s;
 }
 
-class VecNodes : public Vector<Node*> {
-    ~VecNodes() {
-        for (auto& el : *this) {
-            delete el;
-        }
-    }
-    void destroy(int i) {
-        delete _data[i];
-        erase(i);
-    }
-};
-
 int main() {
     int n;
     cin >> n;
-    Node arr[n];
+    Node* arr[n];
     double val;
     for (int i = 0; i < n; i++) {
         cin >> val;
-        arr[i] = Node(val);
+        arr[i] = new Node(val);
     }
     int a, b;
     for (int i = 0; i < n-1; i++) {
         cin >> a >> b;
-        if(!arr[a].safeAddChild(arr+b)) {
+        if(!arr[a]->safeAddChild(*(arr+b))) {
             cout << "not a tree" << endl;
             return 1;
         }
     }
     int h;
     cin >> h;
-    arr[h].hang();
-    cout << arr[h].getSum() << endl << arr[h].getDepth() << endl << arr[h];
+    arr[h]->hang();
+    cout << arr[h]->getSum() << endl << arr[h]->getDepth() << endl << *arr[h];
     return 0;
 }
