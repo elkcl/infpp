@@ -19,10 +19,10 @@ public:
     int capacity() const {return _capacity;}
     T operator[] (int i) const;
     T& operator[] (int i);
-    void push_back(T el);
+    void push_back(T& el);
     void reserve(int cap);
     void shrink_to_fit();
-    void insert(T el, int i);
+    void insert(T& el, int i);
     void erase(int i);
 protected:
     T *_data;
@@ -53,24 +53,22 @@ Vector<T>::~Vector() {
 
 template <typename T>
 T Vector<T>::operator[] (int i) const {
-    assert(i < _size);
-    assert(i >= -_size);
-    if (i >= 0) {
-        return _data[i];
-    } else {
-        return _data[i+_size];
+    if (i < 0) {
+    	i += _size;
     }
+    assert(i < _size);
+    assert(i >= 0);
+    return data[i];
 }
 
 template <typename T>
 T& Vector<T>::operator[] (int i) {
-    assert(i < _size);
-    assert(i >= -_size);
-    if (i >= 0) {
-        return _data[i];
-    } else {
-        return _data[i+_size];
+    if (i < 0) {
+    	i += _size;
     }
+    assert(i < _size);
+    assert(i >= 0);
+    return data[i];
 }
 
 template <typename T>
@@ -84,7 +82,7 @@ void Vector<T>::reserve(int cap) {
 }
 
 template <typename T>
-void Vector<T>::push_back(T el) {
+void Vector<T>::push_back(T& el) {
     if (_size >= _capacity) {
         reserve(_capacity*2);
     }
@@ -92,13 +90,19 @@ void Vector<T>::push_back(T el) {
 }
 
 template <typename T>
-void Vector<T>::insert(T el, int i) {
-    assert(i < _size);
+void Vector<T>::insert(T& el, int i) {
+    assert(i <= _size);
     assert(i >= 0);
     if (_size+1 > _capacity) {
-        reserve(_capacity*2);
+    	_capacity *=2;
+	    T *nd = new T[cap];
+	    memcpy(nd, _data, i*sizeof(T))
+	    memcpy(nd+i, _data+i+1, (_size-i-1)*sizeof(T));
+	    delete[] _data;
+	    _data = nd;
+    } else {
+    	memmove(_data+i+1, _data+i, (_size-i)*sizeof(T));
     }
-    memmove(_data+i+1, _data+i, (_size-i)*sizeof(T));
     _size++;
     _data[i] = el;
 }
@@ -142,9 +146,21 @@ public:
             delete el;
         }
     }
-    void destroy(int i) {
-        delete _data[i];
-        erase(i);
+    void erase(int i) {
+        assert(i < _size);
+    	assert(i >= 0);
+    	Node* p = _data[i];
+   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(T));
+   	 _size--;
+   	 delete p;
+    }
+    Node* detach(int i) {
+    	assert(i < _size);
+    	assert(i >= 0);
+    	Node* p = _data[i];
+   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(T));
+   	 _size--;
+   	 return p;
     }
 };
 
@@ -162,7 +178,7 @@ public:
 
     Node* parent() {return _parent;}
     double value() {return _value;}
-    VecNodes& children() {return _children;}
+    Node* getChild(int i) {return _children[i];}
 
     Node* getRoot() {
         Node* curr = this;
@@ -208,12 +224,12 @@ public:
         return true;
     }
 
-    void detachChild(Node* n) {
+    Node* detachChild(Node* n) {
         int i = 0;
         while (_children[i] != n) {
             ++i;
         }
-        _children.erase(i);
+       return _children.detach(i);
     }
 
     void removeChild(Node* n) {
@@ -221,7 +237,7 @@ public:
         while (_children[i] != n) {
             ++i;
         }
-        _children.destroy(i);
+        _children.erase(i);
     }
 
     double getSum() {
