@@ -26,7 +26,6 @@ public:
     void erase(int i);
 protected:
     T *_data;
-private:
     int _size;
     int _capacity;
 
@@ -58,7 +57,7 @@ T Vector<T>::operator[] (int i) const {
     }
     assert(i < _size);
     assert(i >= 0);
-    return data[i];
+    return _data[i];
 }
 
 template <typename T>
@@ -68,7 +67,7 @@ T& Vector<T>::operator[] (int i) {
     }
     assert(i < _size);
     assert(i >= 0);
-    return data[i];
+    return _data[i];
 }
 
 template <typename T>
@@ -95,8 +94,8 @@ void Vector<T>::insert(T& el, int i) {
     assert(i >= 0);
     if (_size+1 > _capacity) {
     	_capacity *=2;
-	    T *nd = new T[cap];
-	    memcpy(nd, _data, i*sizeof(T))
+	    T *nd = new T[_capacity];
+	    memcpy(nd, _data, i*sizeof(T));
 	    memcpy(nd+i, _data+i+1, (_size-i-1)*sizeof(T));
 	    delete[] _data;
 	    _data = nd;
@@ -150,7 +149,7 @@ public:
         assert(i < _size);
     	assert(i >= 0);
     	Node* p = _data[i];
-   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(T));
+   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(Node*));
    	 _size--;
    	 delete p;
     }
@@ -158,7 +157,7 @@ public:
     	assert(i < _size);
     	assert(i >= 0);
     	Node* p = _data[i];
-   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(T));
+   	 memmove(_data+i, _data+i+1, (_size-i-1)*sizeof(Node*));
    	 _size--;
    	 return p;
     }
