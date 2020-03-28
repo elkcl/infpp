@@ -16,3 +16,5 @@ add_executable(n08 recursion/n08.cpp)
 #Cxxdroid-binary: n07
 add_executable(no_rec trees/no_rec.cpp)
 add_executable(vector_tree trees/vector_tree.cpp)
+add_executable(sorted_vector memory/sorted_vector.cpp)
+add_executable(bin_search2 algo/bin_search2.cpp)
