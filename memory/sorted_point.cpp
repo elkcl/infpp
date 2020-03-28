@@ -53,7 +53,7 @@ Vector<T>::~Vector() {
 template <typename T>
 T Vector<T>::operator[] (int i) const {
     if (i < 0) {
-    	i += _size;
+        i += _size;
     }
     assert(i < _size);
     assert(i >= 0);
@@ -63,7 +63,7 @@ T Vector<T>::operator[] (int i) const {
 template <typename T>
 T& Vector<T>::operator[] (int i) {
     if (i < 0) {
-    	i += _size;
+        i += _size;
     }
     assert(i < _size);
     assert(i >= 0);
@@ -93,14 +93,14 @@ void Vector<T>::insert(T& el, int i) {
     assert(i <= _size);
     assert(i >= 0);
     if (_size+1 > _capacity) {
-    	_capacity *=2;
-	    T *nd = new T[_capacity];
-	    memcpy(nd, _data, i*sizeof(T));
-	    memcpy(nd+i+1, _data+i, (_size-i)*sizeof(T));
-	    delete[] _data;
-	    _data = nd;
+        _capacity *=2;
+        T *nd = new T[_capacity];
+        memcpy(nd, _data, i*sizeof(T));
+        memcpy(nd+i+1, _data+i, (_size-i)*sizeof(T));
+        delete[] _data;
+        _data = nd;
     } else {
-    	memmove(_data+i+1, _data+i, (_size-i)*sizeof(T));
+        memmove(_data+i+1, _data+i, (_size-i)*sizeof(T));
     }
     _size++;
     _data[i] = el;
@@ -136,120 +136,36 @@ istream& operator>>(istream& s, Vector<T>& arr) {
     return s;
 }
 
-template <typename T>
-class Array {
-public:
-    typedef double* iterator;
-    typedef const double* const_iterator;
-    Array() {
-        _size = -1;
-        _data = nullptr;
+struct Point {
+    double x;
+    double y;
+    double z;
+    Point() = default;
+    Point(double a, double b, double c) {
+        x = a;
+        y = b;
+        z = c;
     }
-    explicit Array(int size);
-    Array(const initializer_list<T> &list);
-    ~Array();
-    int size() const {return _size;}
-    T operator[] (int i) const;
-    T& operator[] (int i);
-    Array& operator= (const Array &arr);
-    iterator begin() {return _data;}
-    iterator end() {return _data+_size;}
-private:
-    int _size;
-    T *_data;
+    double distanceToZero() {
+        return sqrt(x*x + y*y + z*z);
+    }
 };
 
-template <typename T>
-Array<T>::Array(int size): _size{size} {
-    _data = new T[size];
-}
-template <typename T>
-Array<T>::Array(const initializer_list<T> &list): Array(list.size()) {
-    int i = 0;
-    for (auto &el : list) {
-        _data[i] = el;
-        i++;
-    }
-}
-template <typename T>
-Array<T>::~Array() {
-    delete[] _data;
-}
-template <typename T>
-T Array<T>::operator[] (int i) const {
-    assert(_data != nullptr);
-    assert(i < _size);
-    assert(i >= -_size);
-    if (i >= 0) {
-        return _data[i];
-    }
-    else {
-        return _data[i+_size];
-    }
-}
-template <typename T>
-T& Array<T>::operator[] (int i) {
-    assert(_data != nullptr);
-    assert(i < _size);
-    assert(i >= -_size);
-    if (i >= 0) {
-        return _data[i];
-    }
-    else {
-        return _data[i+_size];
-    }
-}
-template <typename T>
-Array<T>& Array<T>::operator= (const Array<T> &arr) {
-    if (this == &arr) {
-        return *this;
-    }
-    if (_size == -1) {
-        _size = arr._size;
-        _data = new T[_size];
-    }
-    assert(_size == arr._size);
-    for (int i=0; i<_size; ++i) {
-        _data[i] = arr._data[i];
-    }
-    return *this;
-}
-template <typename T>
-ostream& operator<<(ostream& s, const Array<T>& arr) {
-    assert(arr.size() != -1);
-    s << "(";
-    for (int i = 0; i < arr.size()-1; i++) {
-        s << arr[i] << "; ";
-    }
-    s << arr[arr.size()-1] << ")";
-    return s;
-}
-template <typename T>
-istream& operator>>(istream& s, Array<T>& arr) {
-    assert(arr.size() != -1);
-    for (int i = 0; i < arr.size(); i++) {
-        s >> arr[i];
-    }
+ostream& operator<<(ostream& s, const Point& p) {
+    cout << "(" << p.x << "; " << p.y << "; " << p.z << ")";
     return s;
 }
 
 template <typename T>
 struct ascendingOrder {
-       bool operator() (T& a, T& b) {
-           return a < b;
-       }
+    bool operator() (T& a, T& b) {
+        return a < b;
+    }
 };
 
 struct ascDistZero {
-    bool operator() (Array<double>& a, Array<double>& b) {
-        assert(a.size() == b.size());
-        double dist1 = 0;
-        double dist2 = 0;
-        for (int i=0; i<a.size(); ++i) {
-            dist1 += a[i]*a[i];
-            dist2 += b[i]*b[i];
-        }
-        return dist1 < dist2;
+    bool operator() (Point& a, Point& b) {
+        return a.distanceToZero() < b.distanceToZero();
     }
 };
 
@@ -295,14 +211,17 @@ public:
 };
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    SortedVector<Array<double>, ascDistZero> vec;
+    int n;
+    cin >> n;
+    SortedVector<Point, ascDistZero> vec;
     for (int i=0; i<n; ++i) {
-        auto* point = new Array<double>(k);
-        cin >> *point;
-        vec.push(*point);
+        double x, y, z;
+        cin >> x >> y >> z;
+        Point p{x, y, z};
+        vec.push(p);
     }
-    cout << vec;
+    cout << vec << endl
+         << "Наиболее удалённая точка: " << vec[n-1] << endl
+         << "Наименее удалённая точка: " << vec[0] << endl;
     return 0;
 }
