@@ -137,16 +137,118 @@ istream& operator>>(istream& s, Vector<T>& arr) {
 }
 
 template <typename T>
+class Array {
+public:
+    typedef double* iterator;
+    typedef const double* const_iterator;
+    Array() {
+        _size = -1;
+        _data = nullptr;
+    }
+    Array(int size);
+    Array(const initializer_list<T> &list);
+    ~Array();
+    int size() const {return _size;}
+    T operator[] (int i) const;
+    T& operator[] (int i);
+    Array& operator= (const Array &arr);
+    iterator begin() {return _data;}
+    iterator end() {return _data+_size;}
+private:
+    int _size;
+    T *_data;
+};
+
+template <typename T>
+Array<T>::Array(int size): _size{size} {
+    _data = new T[size];
+}
+template <typename T>
+Array<T>::Array(const initializer_list<T> &list): Array(list.size()) {
+    int i = 0;
+    for (auto &el : list) {
+        _data[i] = el;
+        i++;
+    }
+}
+template <typename T>
+Array<T>::~Array() {
+    delete[] _data;
+}
+template <typename T>
+T Array<T>::operator[] (int i) const {
+    assert(_data != nullptr);
+    assert(i < _size);
+    assert(i >= -_size);
+    if (i >= 0) {
+        return _data[i];
+    }
+    else {
+        return _data[i+_size];
+    }
+}
+template <typename T>
+T& Array<T>::operator[] (int i) {
+    assert(_data != nullptr);
+    assert(i < _size);
+    assert(i >= -_size);
+    if (i >= 0) {
+        return _data[i];
+    }
+    else {
+        return _data[i+_size];
+    }
+}
+template <typename T>
+Array<T>& Array<T>::operator= (const Array<T> &arr) {
+    if (this == &arr) {
+        return *this;
+    }
+    if (_size == -1) {
+        _size = arr._size;
+        _data = new T[_size];
+    }
+    assert(_size == arr._size);
+    for (int i=0; i<_size; ++i) {
+        _data[i] = arr._data[i];
+    }
+}
+template <typename T>
+ostream& operator<<(ostream& s, const Array<T>& arr) {
+    assert(arr.size() != -1);
+    s << "(";
+    for (int i = 0; i < arr.size()-1; i++) {
+        s << arr[i] << "; ";
+    }
+    s << arr[arr.size()-1] << ")";
+    return s;
+}
+template <typename T>
+istream& operator>>(istream& s, Array<T>& arr) {
+    assert(arr.size() != -1);
+    for (int i = 0; i < arr.size(); i++) {
+        s >> arr[i];
+    }
+    return s;
+}
+
+template <typename T>
 struct ascendingOrder {
        bool operator() (T& a, T& b) {
            return a < b;
        }
 };
 
-template <typename T>
-struct descendingOrder {
-    bool operator() (T& a, T& b) {
-        return a > b;
+struct ascDistZero {
+    bool operator() (Array<double>& a, Array<double>& b) {
+        assert(a.size() == b.size());
+        double dist1 = 0;
+        double dist2 = 0;
+        for (int i=0; i<a.size(); ++i) {
+            dist1 += a[i]*a[i];
+            dist2 += b[i]*b[i];
+        }
+        return dist1 < dist2;
     }
 };
 
@@ -192,16 +294,14 @@ public:
 };
 
 int main() {
-    int n;
-    cin >> n;
-    SortedVector<double> vecAsc;
-    SortedVector<double, descendingOrder<double> > vecDesc;
+    int n, k;
+    cin >> n >> k;
+    SortedVector<Array<double>, ascDistZero> vec;
     for (int i=0; i<n; ++i) {
-        double x;
-        cin >> x;
-        vecAsc.push(x);
-        vecDesc.push(x);
+        Array<double> point(k);
+        cin >> point;
+        vec.push(point);
     }
-    cout << vecAsc << endl << vecDesc << endl;
+    cout << vec;
     return 0;
 }
