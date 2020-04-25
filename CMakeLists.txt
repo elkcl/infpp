@@ -3,7 +3,7 @@ project(infpp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(vector_class memory/vector_class.cpp)
+add_executable(vector_class memory/vector_class.cpp memory/vector_class.h memory/vector_test.cpp)
 add_executable(n01 recursion/n01.cpp)
 add_executable(n02 recursion/n02.cpp)
 add_executable(n03 recursion/n03.cpp)
@@ -21,3 +21,5 @@ add_executable(bin_search2 algo/bin_search2.cpp)
 add_executable(sorted_point memory/sorted_point.cpp)
 
 add_executable(sorted_point_any memory/sorted_point_any.cpp)
+add_executable(merge_sort algo/sort/merge_sort.cpp algo/sort/merge_sort.h)
+add_executable(template_vector memory/template_vector.h memory/template_vector.cpp)

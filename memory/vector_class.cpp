@@ -1,36 +1,5 @@
-#include <iostream>
-#include <cassert>
-#include <cstring>
-#include <iterator>
-#include <initializer_list>
+#include "vector_class.h"
 using namespace std;
-
-class VectorDouble {
-public:
-	typedef double* iterator;
-	typedef const double* const_iterator;
-	VectorDouble();
-	explicit VectorDouble(int size);
-	VectorDouble(const initializer_list<double> &list);
-	~VectorDouble();
-	int size() const {return _size;}
-	int capacity() const {return _capacity;}
-	double operator[] (int i) const;
-	double& operator[] (int i);
-	VectorDouble& operator= (const VectorDouble &arr);
-    VectorDouble& operator= (const initializer_list<double> &list);
-	iterator begin() {return _data;}
-	iterator end() {return _data+_size;}
-	void push_back(double el);
-	void reserve(int cap);
-	void shrink_to_fit();
-	void insert(double el, int i);
-	void erase(int i);
-private:
-	int _size;
-	int _capacity;
-	double *_data;
-};
 
 VectorDouble::VectorDouble() {
     _size = 0;
@@ -162,15 +131,3 @@ istream& operator>>(istream& s, VectorDouble& arr) {
 	}
 	return s;
 }
-
-int main() {
-    int n;
-	cin >> n;
-	VectorDouble vec;
-	for (int i = 0; i<n; ++i) {
-        double curr;
-        cin >> curr;
-        vec.push_back(curr);
-	}
-	cout << vec;
- }
