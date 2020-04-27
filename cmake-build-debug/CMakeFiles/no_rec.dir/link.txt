@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/no_rec.dir/trees/no_rec.cpp.o  -o no_rec 

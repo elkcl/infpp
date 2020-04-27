@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/sorted_vector.dir/memory/sorted_vector.cpp.o  -o sorted_vector 

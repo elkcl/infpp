@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMergeLib.a  CMakeFiles/MergeLib.dir/algo/mergesort/merge_sort.cpp.o
+/usr/bin/ranlib libMergeLib.a

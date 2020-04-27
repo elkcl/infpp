@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/elk/CLionProjects/infpp/trees/vector_tree.cpp
+iostream
+-
+cassert
+-
+cstring
+-
+stack
+-
+algorithm
+-
+

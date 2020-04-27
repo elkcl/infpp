@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/n05.dir/recursion/n05.cpp.o  -o n05 

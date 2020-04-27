@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/elk/CLionProjects/infpp/algo/sort/merge_sort.cpp
+merge_sort.h
+/home/elk/CLionProjects/infpp/algo/sort/merge_sort.h
+
+/home/elk/CLionProjects/infpp/algo/sort/merge_sort.h
+functional
+-
+

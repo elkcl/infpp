@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/n04.dir/recursion/n04.cpp.o  -o n04 

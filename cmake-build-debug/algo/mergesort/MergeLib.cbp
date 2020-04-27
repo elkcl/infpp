@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MergeLib"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\algo\;CMake Files\algo\mergesort\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MergeLib">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/libMergeLib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 MergeLib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MergeLib/fast">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/libMergeLib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 MergeLib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/merge_sort.cpp">
+			<Option target="MergeLib"/>
+		</Unit>
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/merge_sort.h">
+			<Option target="MergeLib"/>
+		</Unit>
+		<Unit filename="/home/elk/CLionProjects/infpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\algo\mergesort\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

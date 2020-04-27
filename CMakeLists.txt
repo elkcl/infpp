@@ -1,7 +1,27 @@
 cmake_minimum_required(VERSION 3.14)
 project(infpp)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+#add_compile_options(
+#        -Werror
+#
+#        -Wall
+#        -Wextra
+#        -Wpedantic
+#
+#        -Wcast-align
+#        -Wcast-qual
+#        -Wconversion
+#        -Wctor-dtor-privacy
+#        -Wenum-compare
+#        -Wfloat-equal
+#        -Wnon-virtual-dtor
+#        -Wold-style-cast
+#        -Woverloaded-virtual
+#        -Wredundant-decls
+#        -Wsign-conversion
+#        -Wsign-promo
+#)
 
 add_executable(vector_class memory/vector_class.cpp memory/vector_class.h memory/vector_test.cpp)
 add_executable(n01 recursion/n01.cpp)
@@ -19,7 +39,9 @@ add_executable(vector_tree trees/vector_tree.cpp)
 add_executable(sorted_vector memory/sorted_vector.cpp)
 add_executable(bin_search2 algo/bin_search2.cpp)
 add_executable(sorted_point memory/sorted_point.cpp)
-
 add_executable(sorted_point_any memory/sorted_point_any.cpp)
-add_executable(merge_sort algo/sort/merge_sort.cpp algo/sort/merge_sort.h)
 add_executable(template_vector memory/template_vector.h memory/template_vector.cpp)
+
+add_executable(merge_sort algo/mergesort_test.cpp)
+add_subdirectory(algo/mergesort)
+target_link_libraries(merge_sort MergeLib)

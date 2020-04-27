@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/sorted_point_any.dir/memory/sorted_point_any.cpp.o  -o sorted_point_any 

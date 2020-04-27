@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/template_vector.dir/memory/template_vector.cpp.o  -o template_vector 

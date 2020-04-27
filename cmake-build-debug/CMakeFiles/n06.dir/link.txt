@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/n06.dir/recursion/n06.cpp.o  -o n06 
