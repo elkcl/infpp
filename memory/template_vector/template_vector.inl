@@ -145,7 +145,7 @@ void Vector<T>::mergesort(std::function<bool(T&, T&)> comp) {
 
 template <typename T>
 void Vector<T>::mergesort() {
-    ::quicksort<T>(_data, _data+_size);
+    ::mergesort<T>(_data, _data+_size);
 }
 
 template <typename T>
