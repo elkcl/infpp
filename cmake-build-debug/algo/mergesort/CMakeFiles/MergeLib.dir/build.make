@@ -57,30 +57,15 @@ include algo/mergesort/CMakeFiles/MergeLib.dir/progress.make
 # Include the compile flags for this target's objects.
 include algo/mergesort/CMakeFiles/MergeLib.dir/flags.make
 
-algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.o: algo/mergesort/CMakeFiles/MergeLib.dir/flags.make
-algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.o: ../algo/mergesort/mergesort.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.o"
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MergeLib.dir/mergesort.cpp.o -c /home/elk/CLionProjects/infpp/algo/mergesort/mergesort.cpp
-
-algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MergeLib.dir/mergesort.cpp.i"
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/elk/CLionProjects/infpp/algo/mergesort/mergesort.cpp > CMakeFiles/MergeLib.dir/mergesort.cpp.i
-
-algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MergeLib.dir/mergesort.cpp.s"
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/elk/CLionProjects/infpp/algo/mergesort/mergesort.cpp -o CMakeFiles/MergeLib.dir/mergesort.cpp.s
-
 # Object files for target MergeLib
-MergeLib_OBJECTS = \
-"CMakeFiles/MergeLib.dir/mergesort.cpp.o"
+MergeLib_OBJECTS =
 
 # External object files for target MergeLib
 MergeLib_EXTERNAL_OBJECTS =
 
-algo/mergesort/libMergeLib.a: algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.o
 algo/mergesort/libMergeLib.a: algo/mergesort/CMakeFiles/MergeLib.dir/build.make
 algo/mergesort/libMergeLib.a: algo/mergesort/CMakeFiles/MergeLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libMergeLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libMergeLib.a"
 	cd /home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort && $(CMAKE_COMMAND) -P CMakeFiles/MergeLib.dir/cmake_clean_target.cmake
 	cd /home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MergeLib.dir/link.txt --verbose=$(VERBOSE)
 

@@ -35,6 +35,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.16.5/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.5/CMakeSystem.cmake"
+  "../memory/template_vector/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -48,12 +49,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "algo/mergesort/CMakeFiles/CMakeDirectoryInformation.cmake"
   "algo/quicksort/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "memory/template_vector/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/quicksort.dir/DependInfo.cmake"
   "CMakeFiles/template_vector.dir/DependInfo.cmake"
+  "CMakeFiles/quicksort.dir/DependInfo.cmake"
   "CMakeFiles/sorted_point_any.dir/DependInfo.cmake"
   "CMakeFiles/sorted_point.dir/DependInfo.cmake"
   "CMakeFiles/mergesort.dir/DependInfo.cmake"
@@ -72,4 +74,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/no_rec.dir/DependInfo.cmake"
   "algo/mergesort/CMakeFiles/MergeLib.dir/DependInfo.cmake"
   "algo/quicksort/CMakeFiles/QuickLib.dir/DependInfo.cmake"
+  "memory/template_vector/CMakeFiles/TemplateVectorLib.dir/DependInfo.cmake"
   )

@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <cassert>
+#include <functional>
+#include "mergesort.h"
+#include "quicksort.h"
 
 template <typename T>
 class Vector {
@@ -25,11 +28,16 @@ public:
     void shrink_to_fit();
     void insert(T& el, int i);
     void erase(int i);
+
+    void quicksort(std::function<bool(T&, T&)> comp);
+    void quicksort();
+
+    void mergesort(std::function<bool(T&, T&)> comp);
+    void mergesort();
 protected:
     T *_data;
     int _size;
     int _capacity;
-
 };
 
 template <typename T>
@@ -37,4 +45,6 @@ std::ostream& operator<<(std::ostream& s, const Vector<T>& arr);
 template <typename T>
 std::istream& operator>>(std::istream& s, Vector<T>& arr);
 
+
+#include "template_vector.inl"
 #endif //INFPP_TEMPLATE_VECTOR_H

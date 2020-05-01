@@ -5,7 +5,7 @@
 		<Option title="MergeLib"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\algo\;CMake Files\algo\mergesort\;CMake Files\algo\quicksort\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\algo\;CMake Files\algo\mergesort\;CMake Files\algo\quicksort\;CMake Files\memory\;CMake Files\memory\template_vector\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort"/>
@@ -64,10 +64,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.cpp">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.h">
 			<Option target="MergeLib"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.h">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.inl">
 			<Option target="MergeLib"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/CMakeLists.txt">
@@ -78,6 +78,9 @@
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\algo\quicksort\"/>
+		</Unit>
+		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\memory\template_vector\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

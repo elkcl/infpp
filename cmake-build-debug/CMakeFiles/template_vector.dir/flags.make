@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++2a
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/elk/CLionProjects/infpp/memory/template_vector -I/home/elk/CLionProjects/infpp/algo/mergesort -I/home/elk/CLionProjects/infpp/algo/quicksort 
 

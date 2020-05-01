@@ -1,2 +1,2 @@
-/usr/bin/ar qc libMergeLib.a  CMakeFiles/MergeLib.dir/mergesort.cpp.o
+/usr/bin/ar qc libMergeLib.a  
 /usr/bin/ranlib libMergeLib.a

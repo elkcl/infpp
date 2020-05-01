@@ -1,6 +1,3 @@
-#include "template_vector.h"
-using namespace std;
-
 template <typename T>
 Vector<T>::Vector() {
     _size = 0;
@@ -132,14 +129,34 @@ void Vector<T>::shrink_to_fit() {
 }
 
 template <typename T>
-ostream& operator<<(ostream& s, const Vector<T>& arr) {
+void Vector<T>::quicksort(std::function<bool(T&, T&)> comp) {
+    ::quicksort<T>(_data, _data+_size, comp);
+}
+
+template <typename T>
+void Vector<T>::quicksort() {
+    ::quicksort<T>(_data, _data+_size);
+}
+
+template <typename T>
+void Vector<T>::mergesort(std::function<bool(T&, T&)> comp) {
+    ::mergesort<T>(_data, _data+_size, comp);
+}
+
+template <typename T>
+void Vector<T>::mergesort() {
+    ::quicksort<T>(_data, _data+_size);
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& s, const Vector<T>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         s << arr[i] << " ";
     }
     return s;
 }
 template <typename T>
-istream& operator>>(istream& s, Vector<T>& arr) {
+std::istream& operator>>(std::istream& s, Vector<T>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         s >> arr[i];
     }

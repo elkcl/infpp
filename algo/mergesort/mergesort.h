@@ -9,5 +9,5 @@ void mergesort(T *begin, T *end, std::function<bool(T&, T&)> comp);
 template <typename T>
 void mergesort(T *begin, T *end);
 
-#include "mergesort.cpp"
+#include "mergesort.inl"
 #endif //INFPP_MERGESORT_H

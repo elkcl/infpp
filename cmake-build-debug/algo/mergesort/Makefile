@@ -125,33 +125,6 @@ MergeLib/fast:
 	cd /home/elk/CLionProjects/infpp/cmake-build-debug && $(MAKE) -f algo/mergesort/CMakeFiles/MergeLib.dir/build.make algo/mergesort/CMakeFiles/MergeLib.dir/build
 .PHONY : MergeLib/fast
 
-mergesort.o: mergesort.cpp.o
-
-.PHONY : mergesort.o
-
-# target to build an object file
-mergesort.cpp.o:
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug && $(MAKE) -f algo/mergesort/CMakeFiles/MergeLib.dir/build.make algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.o
-.PHONY : mergesort.cpp.o
-
-mergesort.i: mergesort.cpp.i
-
-.PHONY : mergesort.i
-
-# target to preprocess a source file
-mergesort.cpp.i:
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug && $(MAKE) -f algo/mergesort/CMakeFiles/MergeLib.dir/build.make algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.i
-.PHONY : mergesort.cpp.i
-
-mergesort.s: mergesort.cpp.s
-
-.PHONY : mergesort.s
-
-# target to generate assembly for a file
-mergesort.cpp.s:
-	cd /home/elk/CLionProjects/infpp/cmake-build-debug && $(MAKE) -f algo/mergesort/CMakeFiles/MergeLib.dir/build.make algo/mergesort/CMakeFiles/MergeLib.dir/mergesort.cpp.s
-.PHONY : mergesort.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,9 +134,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MergeLib"
-	@echo "... mergesort.o"
-	@echo "... mergesort.i"
-	@echo "... mergesort.s"
 .PHONY : help
 
 

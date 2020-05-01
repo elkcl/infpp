@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named quicksort
-
-# Build rule for target.
-quicksort: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 quicksort
-.PHONY : quicksort
-
-# fast build rule for target.
-quicksort/fast:
-	$(MAKE) -f CMakeFiles/quicksort.dir/build.make CMakeFiles/quicksort.dir/build
-.PHONY : quicksort/fast
-
-#=============================================================================
 # Target rules for targets named template_vector
 
 # Build rule for target.
@@ -135,6 +122,19 @@ template_vector: cmake_check_build_system
 template_vector/fast:
 	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/build
 .PHONY : template_vector/fast
+
+#=============================================================================
+# Target rules for targets named quicksort
+
+# Build rule for target.
+quicksort: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quicksort
+.PHONY : quicksort
+
+# fast build rule for target.
+quicksort/fast:
+	$(MAKE) -f CMakeFiles/quicksort.dir/build.make CMakeFiles/quicksort.dir/build
+.PHONY : quicksort/fast
 
 #=============================================================================
 # Target rules for targets named sorted_point_any
@@ -370,6 +370,19 @@ QuickLib/fast:
 	$(MAKE) -f algo/quicksort/CMakeFiles/QuickLib.dir/build.make algo/quicksort/CMakeFiles/QuickLib.dir/build
 .PHONY : QuickLib/fast
 
+#=============================================================================
+# Target rules for targets named TemplateVectorLib
+
+# Build rule for target.
+TemplateVectorLib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TemplateVectorLib
+.PHONY : TemplateVectorLib
+
+# fast build rule for target.
+TemplateVectorLib/fast:
+	$(MAKE) -f memory/template_vector/CMakeFiles/TemplateVectorLib.dir/build.make memory/template_vector/CMakeFiles/TemplateVectorLib.dir/build
+.PHONY : TemplateVectorLib/fast
+
 algo/bin_search2.o: algo/bin_search2.cpp.o
 
 .PHONY : algo/bin_search2.o
@@ -532,33 +545,6 @@ memory/sorted_vector.cpp.s:
 	$(MAKE) -f CMakeFiles/sorted_vector.dir/build.make CMakeFiles/sorted_vector.dir/memory/sorted_vector.cpp.s
 .PHONY : memory/sorted_vector.cpp.s
 
-memory/template_vector.o: memory/template_vector.cpp.o
-
-.PHONY : memory/template_vector.o
-
-# target to build an object file
-memory/template_vector.cpp.o:
-	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/template_vector.cpp.o
-.PHONY : memory/template_vector.cpp.o
-
-memory/template_vector.i: memory/template_vector.cpp.i
-
-.PHONY : memory/template_vector.i
-
-# target to preprocess a source file
-memory/template_vector.cpp.i:
-	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/template_vector.cpp.i
-.PHONY : memory/template_vector.cpp.i
-
-memory/template_vector.s: memory/template_vector.cpp.s
-
-.PHONY : memory/template_vector.s
-
-# target to generate assembly for a file
-memory/template_vector.cpp.s:
-	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/template_vector.cpp.s
-.PHONY : memory/template_vector.cpp.s
-
 memory/vector_class.o: memory/vector_class.cpp.o
 
 .PHONY : memory/vector_class.o
@@ -592,6 +578,7 @@ memory/vector_test.o: memory/vector_test.cpp.o
 
 # target to build an object file
 memory/vector_test.cpp.o:
+	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/vector_test.cpp.o
 	$(MAKE) -f CMakeFiles/vector_class.dir/build.make CMakeFiles/vector_class.dir/memory/vector_test.cpp.o
 .PHONY : memory/vector_test.cpp.o
 
@@ -601,6 +588,7 @@ memory/vector_test.i: memory/vector_test.cpp.i
 
 # target to preprocess a source file
 memory/vector_test.cpp.i:
+	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/vector_test.cpp.i
 	$(MAKE) -f CMakeFiles/vector_class.dir/build.make CMakeFiles/vector_class.dir/memory/vector_test.cpp.i
 .PHONY : memory/vector_test.cpp.i
 
@@ -610,6 +598,7 @@ memory/vector_test.s: memory/vector_test.cpp.s
 
 # target to generate assembly for a file
 memory/vector_test.cpp.s:
+	$(MAKE) -f CMakeFiles/template_vector.dir/build.make CMakeFiles/template_vector.dir/memory/vector_test.cpp.s
 	$(MAKE) -f CMakeFiles/vector_class.dir/build.make CMakeFiles/vector_class.dir/memory/vector_test.cpp.s
 .PHONY : memory/vector_test.cpp.s
 
@@ -890,8 +879,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... quicksort"
 	@echo "... template_vector"
+	@echo "... quicksort"
 	@echo "... edit_cache"
 	@echo "... sorted_point_any"
 	@echo "... sorted_point"
@@ -911,6 +900,7 @@ help:
 	@echo "... no_rec"
 	@echo "... MergeLib"
 	@echo "... QuickLib"
+	@echo "... TemplateVectorLib"
 	@echo "... algo/bin_search2.o"
 	@echo "... algo/bin_search2.i"
 	@echo "... algo/bin_search2.s"
@@ -929,9 +919,6 @@ help:
 	@echo "... memory/sorted_vector.o"
 	@echo "... memory/sorted_vector.i"
 	@echo "... memory/sorted_vector.s"
-	@echo "... memory/template_vector.o"
-	@echo "... memory/template_vector.i"
-	@echo "... memory/template_vector.s"
 	@echo "... memory/vector_class.o"
 	@echo "... memory/vector_class.i"
 	@echo "... memory/vector_class.s"

@@ -4,16 +4,22 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/elk/CLionProjects/infpp/memory/template_vector.cpp" "/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/template_vector.dir/memory/template_vector.cpp.o"
+  "/home/elk/CLionProjects/infpp/memory/vector_test.cpp" "/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/template_vector.dir/memory/vector_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../memory/template_vector"
+  "../algo/mergesort"
+  "../algo/quicksort"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/CMakeFiles/TemplateVectorLib.dir/DependInfo.cmake"
+  "/home/elk/CLionProjects/infpp/cmake-build-debug/algo/mergesort/CMakeFiles/MergeLib.dir/DependInfo.cmake"
+  "/home/elk/CLionProjects/infpp/cmake-build-debug/algo/quicksort/CMakeFiles/QuickLib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

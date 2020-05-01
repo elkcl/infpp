@@ -1,6 +1,6 @@
 /home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/quicksort.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/template_vector.dir
+/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/quicksort.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/sorted_point_any.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles/sorted_point.dir
@@ -24,3 +24,6 @@
 /home/elk/CLionProjects/infpp/cmake-build-debug/algo/quicksort/CMakeFiles/rebuild_cache.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/algo/quicksort/CMakeFiles/edit_cache.dir
 /home/elk/CLionProjects/infpp/cmake-build-debug/algo/quicksort/CMakeFiles/QuickLib.dir
+/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/CMakeFiles/rebuild_cache.dir
+/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/CMakeFiles/edit_cache.dir
+/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/CMakeFiles/TemplateVectorLib.dir

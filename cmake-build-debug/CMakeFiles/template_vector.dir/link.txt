@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/template_vector.dir/memory/template_vector.cpp.o  -o template_vector 
+/usr/bin/c++  -g   CMakeFiles/template_vector.dir/memory/vector_test.cpp.o  -o template_vector  memory/template_vector/libTemplateVectorLib.a algo/mergesort/libMergeLib.a algo/quicksort/libQuickLib.a 

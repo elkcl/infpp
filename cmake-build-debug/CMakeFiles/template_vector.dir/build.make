@@ -57,28 +57,31 @@ include CMakeFiles/template_vector.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/template_vector.dir/flags.make
 
-CMakeFiles/template_vector.dir/memory/template_vector.cpp.o: CMakeFiles/template_vector.dir/flags.make
-CMakeFiles/template_vector.dir/memory/template_vector.cpp.o: ../memory/template_vector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/template_vector.dir/memory/template_vector.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/template_vector.dir/memory/template_vector.cpp.o -c /home/elk/CLionProjects/infpp/memory/template_vector.cpp
+CMakeFiles/template_vector.dir/memory/vector_test.cpp.o: CMakeFiles/template_vector.dir/flags.make
+CMakeFiles/template_vector.dir/memory/vector_test.cpp.o: ../memory/vector_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/template_vector.dir/memory/vector_test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/template_vector.dir/memory/vector_test.cpp.o -c /home/elk/CLionProjects/infpp/memory/vector_test.cpp
 
-CMakeFiles/template_vector.dir/memory/template_vector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/template_vector.dir/memory/template_vector.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/elk/CLionProjects/infpp/memory/template_vector.cpp > CMakeFiles/template_vector.dir/memory/template_vector.cpp.i
+CMakeFiles/template_vector.dir/memory/vector_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/template_vector.dir/memory/vector_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/elk/CLionProjects/infpp/memory/vector_test.cpp > CMakeFiles/template_vector.dir/memory/vector_test.cpp.i
 
-CMakeFiles/template_vector.dir/memory/template_vector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/template_vector.dir/memory/template_vector.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/elk/CLionProjects/infpp/memory/template_vector.cpp -o CMakeFiles/template_vector.dir/memory/template_vector.cpp.s
+CMakeFiles/template_vector.dir/memory/vector_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/template_vector.dir/memory/vector_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/elk/CLionProjects/infpp/memory/vector_test.cpp -o CMakeFiles/template_vector.dir/memory/vector_test.cpp.s
 
 # Object files for target template_vector
 template_vector_OBJECTS = \
-"CMakeFiles/template_vector.dir/memory/template_vector.cpp.o"
+"CMakeFiles/template_vector.dir/memory/vector_test.cpp.o"
 
 # External object files for target template_vector
 template_vector_EXTERNAL_OBJECTS =
 
-template_vector: CMakeFiles/template_vector.dir/memory/template_vector.cpp.o
+template_vector: CMakeFiles/template_vector.dir/memory/vector_test.cpp.o
 template_vector: CMakeFiles/template_vector.dir/build.make
+template_vector: memory/template_vector/libTemplateVectorLib.a
+template_vector: algo/mergesort/libMergeLib.a
+template_vector: algo/quicksort/libQuickLib.a
 template_vector: CMakeFiles/template_vector.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/elk/CLionProjects/infpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable template_vector"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/template_vector.dir/link.txt --verbose=$(VERBOSE)

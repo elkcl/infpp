@@ -5,7 +5,7 @@
 		<Option title="infpp"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\algo\;CMake Files\algo\mergesort\;CMake Files\algo\quicksort\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\algo\;CMake Files\algo\mergesort\;CMake Files\algo\quicksort\;CMake Files\memory\;CMake Files\memory\template_vector\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug"/>
@@ -22,6 +22,56 @@
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="template_vector">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/template_vector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/memory/template_vector"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/quicksort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 template_vector"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="template_vector/fast">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/template_vector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/memory/template_vector"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/quicksort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 template_vector/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -68,50 +118,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 quicksort/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="template_vector">
-				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/template_vector" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 template_vector"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="template_vector/fast">
-				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/template_vector" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 template_vector/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -925,23 +931,73 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/algo/quicksort/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="TemplateVectorLib">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/libTemplateVectorLib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/memory/template_vector"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/quicksort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 TemplateVectorLib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TemplateVectorLib/fast">
+				<Option output="/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/libTemplateVectorLib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/elk/CLionProjects/infpp/memory/template_vector"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/mergesort"/>
+					<Add directory="/home/elk/CLionProjects/infpp/algo/quicksort"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 TemplateVectorLib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/elk/CLionProjects/infpp/cmake-build-debug/memory/template_vector/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/elk/CLionProjects/infpp/algo/bin_search2.cpp">
 			<Option target="bin_search2"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.cpp">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.h">
 			<Option target="MergeLib"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.h">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort/mergesort.inl">
 			<Option target="MergeLib"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/algo/mergesort_test.cpp">
 			<Option target="mergesort"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/quicksort.cpp">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/quicksort.h">
 			<Option target="QuickLib"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/quicksort.h">
+		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/quicksort.inl">
 			<Option target="QuickLib"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort_test.cpp">
@@ -956,11 +1012,11 @@
 		<Unit filename="/home/elk/CLionProjects/infpp/memory/sorted_vector.cpp">
 			<Option target="sorted_vector"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector.cpp">
-			<Option target="template_vector"/>
+		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector/template_vector.h">
+			<Option target="TemplateVectorLib"/>
 		</Unit>
-		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector.h">
-			<Option target="template_vector"/>
+		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector/template_vector.inl">
+			<Option target="TemplateVectorLib"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/memory/vector_class.cpp">
 			<Option target="vector_class"/>
@@ -969,6 +1025,7 @@
 			<Option target="vector_class"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/memory/vector_test.cpp">
+			<Option target="template_vector"/>
 			<Option target="vector_class"/>
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/recursion/n01.cpp">
@@ -1009,6 +1066,9 @@
 		</Unit>
 		<Unit filename="/home/elk/CLionProjects/infpp/algo/quicksort/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\algo\quicksort\"/>
+		</Unit>
+		<Unit filename="/home/elk/CLionProjects/infpp/memory/template_vector/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\memory\template_vector\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
