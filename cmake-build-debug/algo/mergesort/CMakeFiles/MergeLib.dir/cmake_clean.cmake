@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MergeLib.dir/merge_sort.cpp.o"
+  "CMakeFiles/MergeLib.dir/mergesort.cpp.o"
   "libMergeLib.a"
   "libMergeLib.pdb"
 )

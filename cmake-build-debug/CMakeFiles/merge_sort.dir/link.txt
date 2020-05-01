@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/merge_sort.dir/algo/mergesort_test.cpp.o  -o merge_sort algo/mergesort/libMergeLib.a 
+/usr/bin/c++  -g   CMakeFiles/merge_sort.dir/algo/mergesort_test.cpp.o  -o merge_sort  algo/mergesort/libMergeLib.a 

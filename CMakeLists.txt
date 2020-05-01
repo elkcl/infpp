@@ -42,6 +42,10 @@ add_executable(sorted_point memory/sorted_point.cpp)
 add_executable(sorted_point_any memory/sorted_point_any.cpp)
 add_executable(template_vector memory/template_vector.h memory/template_vector.cpp)
 
-add_executable(merge_sort algo/mergesort_test.cpp)
+add_executable(mergesort algo/mergesort_test.cpp)
 add_subdirectory(algo/mergesort)
-target_link_libraries(merge_sort MergeLib)
+target_link_libraries(mergesort MergeLib)
+
+add_executable(quicksort algo/quicksort_test.cpp)
+add_subdirectory(algo/quicksort)
+target_link_libraries(quicksort QuickLib)

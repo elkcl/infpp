@@ -2,13 +2,13 @@
 using namespace std;
 
 template <typename T>
-void merge_sort(T *begin, T *end, std::function<bool(T, T)> comp) {
+void mergesort(T *begin, T *end, std::function<bool(T&, T&)> comp) {
     int size = end-begin;
     static T* target = new T[size];
     if (end - begin <= 1) return;
     T* mid = (size)/2 + begin;
-    merge_sort(begin, mid, comp);
-    merge_sort(mid, end, comp);
+    mergesort(begin, mid, comp);
+    mergesort(mid, end, comp);
     T* p1 = begin;
     T* p2 = mid;
     for (int i = 0; i < size; ++i) {
@@ -37,9 +37,9 @@ void merge_sort(T *begin, T *end, std::function<bool(T, T)> comp) {
 }
 
 template <typename T>
-void merge_sort(T *begin, T *end) {
+void mergesort(T *begin, T *end) {
     auto comp = [](T a, T b) -> bool {
         return a < b;
     };
-    merge_sort<T>(begin, end, comp);
+    mergesort<T>(begin, end, comp);
 }
